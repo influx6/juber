@@ -1,7 +1,7 @@
-FROM alpine:3.10
+FROM golang:1.14.3-alpine
 
 RUN apk --no-cache update \
 	&& apk --no-cache upgrade;
 
-COPY ./runner.sh /app/run.sh
-CMD ["/app/run.sh"]
+COPY ./main.go /app/main.go
+CMD ["go", "run", "/app/main.go"]

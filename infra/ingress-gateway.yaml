@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: juber-ingress-gateway
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+  labels:
+    app: juber-app-ingress-gateway
+    project: juber-app
+    type: ingress-gateway
+  namespace: juber-app
+spec:
+  rules:
+    - host: juber.io
+      http:
+        paths:
+          - path: /frontend
+            backend:
+              serviceName: juber-app-frontend-svc
+              servicePort: 80
+          - path: /backend
+            backend:
+              serviceName: juber-app-backend-svc
+              servicePort: 80
+

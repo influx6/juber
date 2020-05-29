@@ -6,6 +6,7 @@ and deployed to Kubernetes.
 
 - Docker Compose
 - Docker (Install [Docker for Windows](https://docs.docker.com/docker-for-windows/) or [Docker Toolbox](https://docs.docker.com/toolbox/toolbox_install_windows/), [Vagrant](https://www.vagrantup.com/) and [Virutalbox](https://www.virtualbox.org/) if you have no hyper-v support)
+- Docker buildx (For multi-arch builds, [Install Dockerx plugin](https://github.com/docker/buildx/#installing))
 - Make (Gnu Make for windows, Install via [Chocolatey](https://chocolatey.org/packages/make) or [SourceForge](https://sourceforge.net/projects/gnuwin32/))
 - Homebrew (Mac-Only, install [Scoop for Windows](https://scoop.sh/) or [GoFish for Linux/Windows](https://gofi.sh/) or [LinuxBrew for Linux](https://docs.brew.sh/Homebrew-on-Linux))
 - Kubernetes Options:

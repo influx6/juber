@@ -10,7 +10,7 @@ metadata:
   name: juber-app-frontend-deployment
   namespace: juber-app
 spec:
-  minReadySeconds: 30
+  minReadySeconds: 45
   replicas: 1
   selector:
     matchLabels:
@@ -31,7 +31,11 @@ spec:
       - image: influx6/juber-app-frontend:latest
         imagePullPolicy: Always
         name: juber-app-frontend
-        resources: {}
+        env:
+          - name: PORT
+            value: "80"
+          - name: MESSAGE
+            value: "frontend"
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
 ---
@@ -45,11 +49,11 @@ metadata:
   name: juber-app-frontend-svc
   namespace: juber-app
 spec:
+  type: ClusterIP
   selector:
     app: juber-app-frontend
   ports:
-    - port: 8080
+    - port: 80
       protocol: TCP
-      targetPort: 8080
+      targetPort: 80
   sessionAffinity: None
-  type: LoadBalancer
